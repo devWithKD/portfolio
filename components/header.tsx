@@ -8,7 +8,7 @@ const popins = Poppins({ weight: "800", subsets: ["latin"] });
 
 export default function Header() {
   return (
-    <header className="fixed top-0 w-full max-w-[40rem] md:w-[40rem] h-auto py-5 lg:pt-10 dark:bg-zinc-950">
+    <header className="fixed top-0 w-full max-w-[40rem] md:w-[40rem] h-auto py-5 lg:pt-10 bg-zinc-50 dark:bg-zinc-950">
       <div className="relative w-full flex justify-between items-center px-8">
         <Link href="/">
           <div
