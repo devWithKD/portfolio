@@ -35,7 +35,7 @@ function DropDownNav() {
     );
   return (
     <motion.nav
-      className="flex lg:hidden items-center relative"
+      className="flex sm:hidden items-center"
       initial={false}
       animate={isOpen ? "open" : "closed"}
     >
@@ -43,10 +43,10 @@ function DropDownNav() {
         <CiMenuFries size={24} />
       </button>
       <motion.ul
-        className="flex flex-col gap-3 absolute w-52 rounded-sm my-3 p-3 bg-zinc-100 dark:bg-zinc-800 drop-shadow top-full right-0"
+        className="absolute flex flex-col max-w-[40rem] md:w-[40rem] rounded-sm my-3 px-3 bg-zinc-100 dark:bg-zinc-900 z-30 drop-shadow top-12 right-0 left-0 "
         variants={{
           open: {
-            clipPath: "inset(0% 0% 0% 0% round 5px)",
+            clipPath: "inset(0% 0% 0% 0%)",
             transition: {
               type: "spring",
               bounce: 0,
@@ -56,7 +56,7 @@ function DropDownNav() {
             },
           },
           closed: {
-            clipPath: "inset(10% 10% 90% 90% round 5px)",
+            clipPath: "inset(0% 0% 100% 0%)",
             transition: {
               type: "spring",
               bounce: 0,
@@ -66,19 +66,46 @@ function DropDownNav() {
         }}
       >
         {path !== "/" && (
-          <motion.li className="flex items-center gap-4" variants={itemVariants} onClick={() => setIsOpen(false)}>
-            <Image src={arrow} alt="alt" width={24} height={24} />
-            <Link href="/">Return to Home</Link>
+          <motion.li
+            className="flex items-center gap-4 my-2 first:mt-4 last:mb-4"
+            variants={itemVariants}
+          >
+            <Image
+              src={arrow}
+              alt="alt"
+              width={24}
+              height={24}
+              className="invert dark:invert-0"
+              priority
+            />
+            <Link href="/" onClick={() => setIsOpen(false)}>
+              Return to Home
+            </Link>
           </motion.li>
         )}
-        <motion.li className="ps-10" variants={itemVariants} onClick={() => setIsOpen(false)}>
-          <Link href="/projects">Projects</Link>
+        <motion.li
+          className="ps-10 my-2 first:mt-4 last:mb-4"
+          variants={itemVariants}
+        >
+          <Link href="/projects" onClick={() => setIsOpen(false)}>
+            Projects
+          </Link>
         </motion.li>
-        <motion.li className="ps-10" variants={itemVariants} onClick={() => setIsOpen(false)}>
-          <Link href="/blog">Blog</Link>
+        <motion.li
+          className="ps-10 my-2 first:mt-4 last:mb-4"
+          variants={itemVariants}
+        >
+          <Link href="/blog" onClick={() => setIsOpen(false)}>
+            Blog
+          </Link>
         </motion.li>
-        <motion.li className="ps-10" variants={itemVariants} onClick={() => setIsOpen(false)}>
-          <Link href="/experience">Experience</Link>
+        <motion.li
+          className="ps-10 my-2 first:mt-4 last:mb-4"
+          variants={itemVariants}
+        >
+          <Link href="/experience" onClick={() => setIsOpen(false)}>
+            Experience
+          </Link>
         </motion.li>
       </motion.ul>
     </motion.nav>

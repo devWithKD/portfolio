@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         <Prvoider>
           <Header />
-          <main className="w-full max-w-[40rem] px-8 md:w-[40rem] pt-12">
+          <main className="w-full mt-14 max-w-[40rem] px-8 md:w-[40rem] pt-12">
             {children}
           </main>
         </Prvoider>
