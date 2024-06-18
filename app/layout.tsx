@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Prvoider from "@/components/providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "devWithKD",
@@ -20,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} w-screen flex flex-col justify-center items-center`}
+        className={`${poppins.className} w-screen flex flex-col justify-center items-center bg-zinc-50 dark:bg-zinc-950 transition-all duration-300`}
       >
         <Prvoider>
           <Header />
-          <main className="w-4/6">{children}</main>
+          <main className="w-full max-w-[40rem] px-8 md:w-[40rem] pt-12">
+            {children}
+          </main>
         </Prvoider>
       </body>
     </html>
