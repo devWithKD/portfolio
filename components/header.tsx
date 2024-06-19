@@ -12,7 +12,7 @@ export default function Header() {
       <div className="relative w-full flex justify-between items-center px-8">
         <Link href="/">
           <div
-            className={`${popins.className} flex flex-col text-xl text-zinc-300 dark:text-zinc-400`}
+            className={`${popins.className} flex flex-col text-xl text-zinc-400`}
           >
             <div className="leading-6">devWith</div>
             <div className="text-zinc-900 dark:text-zinc-50 leading-5">KD</div>
