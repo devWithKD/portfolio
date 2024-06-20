@@ -14,19 +14,21 @@ export const metadata: Metadata = {
   title:
     "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
   description:
-    "Welcome to KD's portfolio, your destination for exploring top-tier web development projects and professional development journey. Discover innovative UI/UX designs and high-performing web applications crafted by an experienced Fullstack Developer specializing in React and Node.js. With a proven track record in building dynamic, SEO-optimized web applications, I provide high-quality development services ideal for businesses of all sizes. Elevate your digital presence by hiring a professional React developer and bring your project vision to life.",
+    "Welcome to KD's portfolio, your destination for top-tier React and Node.js development. Specializing in dynamic, SEO-optimized web applications and innovative UI/UX designs. Explore my expertise in crafting high-performing solutions tailored for businesses of all sizes.",
   openGraph: {
+    siteName: "KD's Portfolio",
     title:
       "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
     description:
-      "Welcome to KD's portfolio, your destination for exploring top-tier web development projects and professional development journey. Discover innovative UI/UX designs and high-performing web applications crafted by an experienced Fullstack Developer specializing in React and Node.js. With a proven track record in building dynamic, SEO-optimized web applications, I provide high-quality development services ideal for businesses of all sizes. Elevate your digital presence by hiring a professional React developer and bring your project vision to life.",
+      "Welcome to KD's portfolio, your destination for top-tier React and Node.js development. Specializing in dynamic, SEO-optimized web applications and innovative UI/UX designs. Explore my expertise in crafting high-performing solutions tailored for businesses of all sizes.",
     url: "https://devwithkd.com",
   },
   twitter: {
+    site:"@devWithKD",
     title:
       "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
     description:
-      "Welcome to KD's portfolio, your destination for exploring top-tier web development projects and professional development journey. Discover innovative UI/UX designs and high-performing web applications crafted by an experienced Fullstack Developer specializing in React and Node.js. With a proven track record in building dynamic, SEO-optimized web applications, I provide high-quality development services ideal for businesses of all sizes. Elevate your digital presence by hiring a professional React developer and bring your project vision to life.",
+      "Welcome to KD's portfolio, your destination for top-tier React and Node.js development. Specializing in dynamic, SEO-optimized web applications and innovative UI/UX designs. Explore my expertise in crafting high-performing solutions tailored for businesses of all sizes.",
   },
 };
 
