@@ -1,6 +1,10 @@
 "use client";
 import { motion, Variants } from "framer-motion";
-import { Children, isValidElement, ReactNode } from "react";
+import {
+  Children,
+  isValidElement,
+  ReactNode,
+} from "react";
 
 const containerVariants: Variants = {
   hidden: {
@@ -17,7 +21,7 @@ const containerVariants: Variants = {
 const childVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 5,
+    y: 20,
   },
   show: {
     opacity: 1,
@@ -25,13 +29,20 @@ const childVariants: Variants = {
   },
 };
 
-function PopInDiv({ children }: { children: ReactNode[] | ReactNode }) {
+function PopInDiv({
+  children,
+  className,
+}: {
+  children?: ReactNode[] | ReactNode;
+  className?: string;
+}) {
   return (
     <motion.div
       variants={containerVariants}
       initial="hidden"
       animate="show"
-      transition={{duration: 0.5}}
+      transition={{ duration: 0.5 }}
+      className={className}
     >
       {Children.map(children, (child) => {
         if (isValidElement(child)) {

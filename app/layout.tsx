@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Prvoider from "@/components/providers";
+import Footer from "@/components/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,13 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.className} w-screen flex flex-col justify-center items-center bg-zinc-50 dark:bg-zinc-950 transition-all duration-300`}
+        className={`${poppins.className} w-full min-h-screen flex flex-col items-center bg-zinc-50 dark:bg-zinc-950`}
       >
         <Prvoider>
           <Header />
-          <main className="w-full mt-14 max-w-[40rem] px-8 md:w-[40rem] pt-12">
+          <main className="w-full flex-grow mt-14 max-w-[40rem] px-8 md:w-[40rem] py-12 ">
             {children}
           </main>
+          <Footer />
         </Prvoider>
       </body>
     </html>
