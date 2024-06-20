@@ -12,13 +12,13 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title:
-    "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
+    "devWithKD | Fullstack Developer - React, Node.js, UI/UX Design",
   description:
     "Welcome to KD's portfolio, your destination for top-tier React and Node.js development. Specializing in dynamic, SEO-optimized web applications and innovative UI/UX designs. Explore my expertise in crafting high-performing solutions tailored for businesses of all sizes.",
   openGraph: {
     siteName: "KD's Portfolio",
     title:
-      "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
+      "devWithKD | Fullstack Developer - React, Node.js, UI/UX Design",
     description:
       "Welcome to KD's portfolio, your destination for top-tier React and Node.js development. Specializing in dynamic, SEO-optimized web applications and innovative UI/UX designs. Explore my expertise in crafting high-performing solutions tailored for businesses of all sizes.",
     url: "https://devwithkd.com",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     site:"@devWithKD",
     title:
-      "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
+      "devWithKD | Fullstack Developer - React, Node.js, UI/UX Design",
     description:
       "Welcome to KD's portfolio, your destination for top-tier React and Node.js development. Specializing in dynamic, SEO-optimized web applications and innovative UI/UX designs. Explore my expertise in crafting high-performing solutions tailored for businesses of all sizes.",
   },
