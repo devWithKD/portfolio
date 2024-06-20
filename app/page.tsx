@@ -1,19 +1,17 @@
 import PopInDiv from "@/components/popinDiv";
 import ProjectCard from "@/components/projectCard";
 import SkillSection from "@/components/skillSection";
-import Image from "next/image";
-import photo from "@/assets/circular_placeholder.svg";
 
 export default function Home() {
   return (
     <PopInDiv>
       <div className="text-zinc-800 dark:text-zinc-50">
-        <p className="my-2 text-xl font-medium">
+        <h1 className="my-2 text-xl font-medium">
           hey, I&apos;m <span className="font-bold">Kedar</span> 👋
           <span className=" ms-3 font-light text-base italic">
             (You can call me <span className="font-medium">KD</span>)
           </span>
-        </p>
+        </h1>
         <p className="my-4 text-zinc-700 dark:text-zinc-200 font-light">
           I&apos;m a dynamic developer and occasional designer hailing from
           Kolhapur, with a strong passion for all things tech.
@@ -36,16 +34,16 @@ export default function Home() {
           projects, showcasing my multidisciplinary background. I&apos;m excited
           to see what the next phase of this captivating journey brings!
         </p>
-        <p className="mt-6 mb-4 text-xl font-medium">My Skills..</p>
+        <h2 className="mt-6 mb-4 text-xl font-medium">My Skills..</h2>
         <SkillSection />
-        <p className="mt-6 mb-4 text-xl font-medium">Projects</p>
+        <h2 className="mt-6 mb-4 text-xl font-medium">Projects</h2>
         <div className=" grid grid-cols-3 gap-5 ">
           <ProjectCard title="Cadence" link="https://cadence.devwithkd.com/">
             A React and Firebase-powered Kanban board for efficient workflow
             management.
           </ProjectCard>
         </div>
-        <p className="my-6 text-xl font-medium">Connect</p>
+        <h2 className="my-6 text-xl font-medium">Connect</h2>
         <p>
           Reach me at <a href="mailto: kd@devwithkd.com" className="underline">kd@devwithkd.com</a> or <a href="https://twitter.com/messages/compose?recipient_id=1063841225571131393" className="underline">@devWithKD</a>
         </p>

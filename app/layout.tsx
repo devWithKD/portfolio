@@ -11,9 +11,23 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "devWithKD",
+  title:
+    "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
   description:
-    "Welcome to devWithKD's portfolio. Explore my projects, skills & professional journey. Check out innovative web applications, UI/UX designs, and more.",
+    "Welcome to KD's portfolio, your destination for exploring top-tier web development projects and professional development journey. Discover innovative UI/UX designs and high-performing web applications crafted by an experienced Fullstack Developer specializing in React and Node.js. With a proven track record in building dynamic, SEO-optimized web applications, I provide high-quality development services ideal for businesses of all sizes. Elevate your digital presence by hiring a professional React developer and bring your project vision to life.",
+  openGraph: {
+    title:
+      "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
+    description:
+      "Welcome to KD's portfolio, your destination for exploring top-tier web development projects and professional development journey. Discover innovative UI/UX designs and high-performing web applications crafted by an experienced Fullstack Developer specializing in React and Node.js. With a proven track record in building dynamic, SEO-optimized web applications, I provide high-quality development services ideal for businesses of all sizes. Elevate your digital presence by hiring a professional React developer and bring your project vision to life.",
+    url: "https://devwithkd.com",
+  },
+  twitter: {
+    title:
+      "devWithKD: Fullstack Developer Specializing in React and Node.js | Portfolio",
+    description:
+      "Welcome to KD's portfolio, your destination for exploring top-tier web development projects and professional development journey. Discover innovative UI/UX designs and high-performing web applications crafted by an experienced Fullstack Developer specializing in React and Node.js. With a proven track record in building dynamic, SEO-optimized web applications, I provide high-quality development services ideal for businesses of all sizes. Elevate your digital presence by hiring a professional React developer and bring your project vision to life.",
+  },
 };
 
 export default function RootLayout({
