@@ -30,7 +30,7 @@ export default function Header() {
                 <PageLink href="/blog">Blog</PageLink>
               </li>
               <li>
-                <PageLink href="/experience">Experience</PageLink>
+                <PageLink href="/resume">resume</PageLink>
               </li>
             </ul>
           </nav>

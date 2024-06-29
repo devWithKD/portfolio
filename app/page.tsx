@@ -16,11 +16,12 @@ export default function Home() {
           I&apos;m a dynamic developer and occasional designer hailing from
           Kolhapur, with a strong passion for all things tech.
         </p>
-        <div className="w-full my-6 flex justify-center items-center">
+        {/* TODO: Add Photo if possible */}
+        {/* <div className="w-full my-6 flex justify-center items-center">
           <div className="w-full aspect-video bg-white rounded-md text-black flex justify-center items-center">
             PHOTO PLACE HOLDER
           </div>
-        </div>
+        </div> */}
         <p className="mb-4 text-zinc-700 dark:text-zinc-200 font-light">
           Back in 2017, I kicked off this cool project to build a Battery
           Management System with a microcontroller. This little project set off
@@ -37,15 +38,28 @@ export default function Home() {
         <h2 className="mt-6 mb-4 text-xl font-medium">My Skills..</h2>
         <SkillSection />
         <h2 className="mt-6 mb-4 text-xl font-medium">Projects</h2>
-        <div className=" grid grid-cols-3 gap-5 ">
-          <ProjectCard title="Cadence" link="https://cadence.devwithkd.com/">
+        <div className=" grid grid-cols-2 sm:grid-cols-3 gap-5 ">
+          <ProjectCard title="Cadence" link="https://cadence.devwithkd.com/" className="whitespace-break-spaces">
             A React and Firebase-powered Kanban board for efficient workflow
             management.
           </ProjectCard>
         </div>
         <h2 className="my-6 text-xl font-medium">Connect</h2>
         <p>
-          Reach me at <a href="mailto: kd@devwithkd.com" className="underline">kd@devwithkd.com</a> or <a href="https://twitter.com/messages/compose?recipient_id=1063841225571131393" className="underline">@devWithKD</a>
+          Reach me at my {" "}
+          <a
+            href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#100;&#64;&#100;&#101;&#118;&#119;&#105;&#116;&#104;&#107;&#100;&#46;&#99;&#111;&#109;"
+            className="underline"
+          >
+            email
+          </a>{" "}
+          or{" "}
+          <a
+            href="https://twitter.com/messages/compose?recipient_id=1063841225571131393"
+            className="underline"
+          >
+            @devWithKD
+          </a>
         </p>
       </div>
     </PopInDiv>
