@@ -19,7 +19,7 @@ export default function Header() {
           </div>
         </Link>
         <div className="flex items-center gap-5">
-          <nav className="hidden sm:block">
+          {/* <nav className="hidden sm:block">
             <ul className="flex gap-5 items-center">
               <li>
                 <PageLink href="/projects">
@@ -33,9 +33,9 @@ export default function Header() {
                 <PageLink href="/resume">resume</PageLink>
               </li>
             </ul>
-          </nav>
+          </nav> */}
           <ThemeSwitcher />
-          <DropDownNav />
+          {/* <DropDownNav /> */}
         </div>
       </div>
     </header>
