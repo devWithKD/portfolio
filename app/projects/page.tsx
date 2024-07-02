@@ -1,5 +1,7 @@
-export default function Home() {
+export default function ProjectPage() {
   return (
-    <p>Hellow world from dev with kd</p>
+    <main className="page">
+      <p>Hellow world from dev with kd</p>
+    </main>
   );
 }

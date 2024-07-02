@@ -1,5 +1,7 @@
-export default function Home() {
+export default function BlogPage() {
   return (
-    <p>Hellow world from dev with kd</p>
+    <main className="page">
+      <p>Hellow world from dev with kd</p>
+    </main>
   );
 }
