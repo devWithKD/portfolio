@@ -74,6 +74,7 @@ function DropDownNav() {
               src={arrow}
               alt="alt"
               width={24}
+              height={24}
               className="invert dark:invert-0"
               priority
             />
