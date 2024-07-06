@@ -12,11 +12,27 @@ import tailwindLogo from "@/assets/tailwind-css.svg";
 import unityLogo from "@/assets/unity-logo.svg";
 import unrealLogo from "@/assets/unreal-1.svg";
 import fusionLogo from "@/assets/fusion-360.webp";
+import { Skill } from "@/model/skill.model";
+import { ApiResponse } from "@/types/ApiResponse";
 
-function SkillSection() {
+const getSkills = async () => {
+  const res = await fetch("http://127.0.0.1:3000/api/skill", {
+    next: { revalidate: 3600 },
+  });
+  const data: ApiResponse = await res.json();
+  if (!data.success) return null
+  return data.skills;
+};
+
+async function SkillSection() {
+  const skills = await getSkills();
+  if (!skills) return <p>Error Loading Skills</p>;
   return (
     <div className="flex gap-2 flex-wrap">
-      <IconText src={jsLogo} alt="Logo for JavaScript">
+      {skills.map((skill) => (
+        <IconText>{skill.name}</IconText>
+      ))}
+      {/* <IconText src={jsLogo} alt="Logo for JavaScript">
         JavaScript
       </IconText>
       <IconText src={reactLogo} alt="Logo for ReactJS">
@@ -54,7 +70,7 @@ function SkillSection() {
       </IconText>
       <IconText src={fusionLogo} alt="Logo for Autodesk Fusion 360">
         Fusion 360
-      </IconText>
+      </IconText> */}
     </div>
   );
 }

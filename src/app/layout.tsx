@@ -38,15 +38,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${poppins.className} w-full min-h-screen flex flex-col items-center bg-zinc-50 dark:bg-zinc-950`}
       >
         <Prvoider>
           <Header />
-          <main className="w-full flex-grow mt-14 max-w-[40rem] px-8 md:w-[40rem] py-12 ">
             {children}
-          </main>
           <Footer />
         </Prvoider>
       </body>

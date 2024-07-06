@@ -16,7 +16,7 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
-function DropDownNav() {
+function DropDownNav({ isAuthenticated=false }: { isAuthenticated?: boolean }) {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
@@ -103,8 +103,16 @@ function DropDownNav() {
           className="ps-10 my-2 first:mt-4 last:mb-4"
           variants={itemVariants}
         >
-          <Link href="/experience" onClick={() => setIsOpen(false)}>
-            Experience
+          <Link href="/resume" onClick={() => setIsOpen(false)}>
+            Resume
+          </Link>
+        </motion.li>
+        <motion.li
+          className="ps-10 my-2 first:mt-4 last:mb-4"
+          variants={itemVariants}
+        >
+          <Link href="/edit" onClick={() => setIsOpen(false)}>
+            Edit
           </Link>
         </motion.li>
       </motion.ul>

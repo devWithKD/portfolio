@@ -5,3 +5,12 @@
 *{
   user-select: none;
 }
+
+@layer components {
+  .page{
+    @apply w-full flex-grow mt-14 max-w-[40rem] px-8 md:w-[40rem] py-12 
+  }
+  .wide-page{
+    @apply w-full lg:w-3/4 flex-grow mt-14 py-12 px-8
+  }
+}
