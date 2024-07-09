@@ -35,7 +35,7 @@ export default async function Header() {
               </li>
               {session?.user && (
                 <li>
-                  <PageLink href="/projects">Edit</PageLink>
+                  <PageLink href="/edit">Edit</PageLink>
                 </li>
               )}
             </ul>

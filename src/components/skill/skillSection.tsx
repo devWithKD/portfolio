@@ -1,4 +1,4 @@
-import IconText from "./iconText";
+import IconText from "../iconText";
 import jsLogo from "@/assets/javascript.svg";
 import reactLogo from "@/assets/react.svg";
 import tsLogo from "@/assets/typescript.svg";
@@ -12,16 +12,14 @@ import tailwindLogo from "@/assets/tailwind-css.svg";
 import unityLogo from "@/assets/unity-logo.svg";
 import unrealLogo from "@/assets/unreal-1.svg";
 import fusionLogo from "@/assets/fusion-360.webp";
-import { Skill } from "@/model/skill.model";
-import { ApiResponse } from "@/types/ApiResponse";
+import SkillModel, { Skill } from "@/model/skill.model";
+import dbConnect from "@/lib/dbConnect";
 
 const getSkills = async () => {
-  const res = await fetch("http://127.0.0.1:3000/api/skill", {
-    next: { revalidate: 3600 },
-  });
-  const data: ApiResponse = await res.json();
-  if (!data.success) return null
-  return data.skills;
+  await dbConnect();
+  const skills: Skill[] = await SkillModel.find();
+  if (skills.length <= 0) return undefined;
+  return skills;
 };
 
 async function SkillSection() {
@@ -30,7 +28,7 @@ async function SkillSection() {
   return (
     <div className="flex gap-2 flex-wrap">
       {skills.map((skill) => (
-        <IconText>{skill.name}</IconText>
+        <IconText src={skill.img_url}>{skill.name}</IconText>
       ))}
       {/* <IconText src={jsLogo} alt="Logo for JavaScript">
         JavaScript

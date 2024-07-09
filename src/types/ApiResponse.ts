@@ -5,6 +5,8 @@ export interface ApiResponse {
   success: boolean;
   message: string; 
   skills?: Array<Skill>;
-  projects?: Array<String>;
-  experiances?: Array<String>;
+  projects?: Array<string>;
+  experiances?: Array<string>;
+  Key?: string;
+  signedUrl? : string;
 }

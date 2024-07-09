@@ -1,6 +1,6 @@
 import PopInDiv from "@/components/popinDiv";
 import ProjectCard from "@/components/projectCard";
-import SkillSection from "@/components/skillSection";
+import SkillSection from "@/components/skill/skillSection";
 
 export default function Home() {
   return (

@@ -2,13 +2,13 @@ import mongoose, { Schema, Document } from "mongoose";
 
 export interface Skill extends Document {
   name: string;
-  // image: string;
+  img_url?: string;
   level: Number;
 }
 
 const SkillSchema: Schema<Skill> = new Schema({
   name: { type: String, required: true },
-  // image: { type: String, required: true },
+  img_url: { type: String, required: false },
   level: { type: Number, required: true, max: 10, min: 1 },
 });
 
