@@ -53,7 +53,7 @@ function SkillForm({
       axios
         .put(preSignedData.signedUrl, logo)
         .then(async () => {
-          const res = addSkill(formData, preSignedData.Key);
+          const res = await addSkill(formData, preSignedData.Key);
           if (res) console.error(res);
         })
         .catch((error) => {
@@ -62,11 +62,11 @@ function SkillForm({
     } else {
       if (!updateSkill) return;
       if (preSignedData == null) {
-        const res = updateSkill(formData, skill?._id as string);
+        const res = await updateSkill(formData, skill?._id as string);
         if (res) console.error(res);
       } else {
         await axios.put(preSignedData.signedUrl, logo).then(async () => {
-          const res = updateSkill(
+          const res = await updateSkill(
             formData,
             skill?._id as string,
             preSignedData.Key
