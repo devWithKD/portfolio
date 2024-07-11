@@ -31,11 +31,12 @@ function DropDownNav({ isAuthenticated=false }: { isAuthenticated?: boolean }) {
         alt="Loading Light/Dark Toggle"
         priority={false}
         title="Loading Light/Dark Toggle"
+        className="hidden"
       />
     );
   return (
     <motion.nav
-      className="flex sm:hidden items-center"
+      className="hidden items-center"
       initial={false}
       animate={isOpen ? "open" : "closed"}
     >
