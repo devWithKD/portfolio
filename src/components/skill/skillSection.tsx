@@ -1,4 +1,4 @@
-import IconText from "./iconText";
+import IconText from "../iconText";
 import jsLogo from "@/assets/javascript.svg";
 import reactLogo from "@/assets/react.svg";
 import tsLogo from "@/assets/typescript.svg";
@@ -12,11 +12,25 @@ import tailwindLogo from "@/assets/tailwind-css.svg";
 import unityLogo from "@/assets/unity-logo.svg";
 import unrealLogo from "@/assets/unreal-1.svg";
 import fusionLogo from "@/assets/fusion-360.webp";
+import SkillModel, { Skill } from "@/model/skill.model";
+import dbConnect from "@/lib/dbConnect";
 
-function SkillSection() {
+const getSkills = async () => {
+  await dbConnect();
+  const skills: Skill[] = await SkillModel.find();
+  if (skills.length <= 0) return undefined;
+  return skills;
+};
+
+async function SkillSection() {
+  const skills: Skill[]|undefined = await getSkills();
+  if (!skills) return <p>Error Loading Skills</p>;
   return (
     <div className="flex gap-2 flex-wrap">
-      <IconText src={jsLogo} alt="Logo for JavaScript">
+      {skills.map((skill) => (
+        <IconText key={skill._id} src={skill.img_url}>{skill.name}</IconText>
+      ))}
+      {/* <IconText src={jsLogo} alt="Logo for JavaScript">
         JavaScript
       </IconText>
       <IconText src={reactLogo} alt="Logo for ReactJS">
@@ -54,7 +68,7 @@ function SkillSection() {
       </IconText>
       <IconText src={fusionLogo} alt="Logo for Autodesk Fusion 360">
         Fusion 360
-      </IconText>
+      </IconText> */}
     </div>
   );
 }

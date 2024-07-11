@@ -55,7 +55,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 For any questions or inquiries, please contact devWithKD at:
 
-Email: <kedar.jo0299@gmail.com>
+Email: <kd@devwithkd.com>
 LinkedIn: <https://www.linkedin.com/in/devwithkd/>
 GitHub: <https://github.com/devWithKD>
 Thank you for visiting devWithKD's portfolio repository!
