@@ -27,6 +27,7 @@ async function SkillTable() {
             <TableHead className="text-center w-fit">
               Proficiency Level
             </TableHead>
+            <TableHead className="w-[10rem]"/>
           </TableRow>
         </TableHeader>
         <TableBody>

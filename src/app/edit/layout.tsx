@@ -21,17 +21,17 @@ async function Layout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <main className="wide-page flex flex-col md:flex-row gap-4">
       <div className="md:min-w-40 my-0 md:my-4 h-fit flex flex-col gap-4">
-        <ul className="px-4 py-3 flex flex-wrap sm:flex-nowrap md:flex-col justify-start md:justify-center text-center md:text-start items-start gap-8 md:gap-3 rounded-md border dark:border-zinc-700 dark:bg-zinc-800">
-          <li className="w-fit sm:w-full cursor-pointer text-zinc-300 hover:text-zinc-200 font-light hover:scale-[1.02] transition-all duration-150 ease-in-out">
+        <ul className="px-4 py-3 flex flex-wrap sm:flex-nowrap md:flex-col justify-start md:justify-center text-center md:text-start items-start gap-8 md:gap-3 rounded-md border border-zinc-400 bg-zinc-300 dark:border-zinc-700 dark:bg-zinc-800 text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-200">
+          <li className="w-fit sm:w-full cursor-pointer text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-200 font-light hover:scale-[1.02] transition-all duration-150 ease-in-out">
             <Link href="/edit/blogs">Blogs</Link>
           </li>
-          <li className="w-fit sm:w-full cursor-pointer text-zinc-300 hover:text-zinc-200 font-light hover:scale-[1.02] transition-all duration-150 ease-in-out">
+          <li className="w-fit sm:w-full cursor-pointer  font-light hover:scale-[1.02] transition-all duration-150 ease-in-out">
             <Link href="/edit/skills">Skills</Link>
           </li>
-          <li className="w-fit sm:w-full cursor-pointer text-zinc-300 hover:text-zinc-200 font-light hover:scale-[1.02] transition-all duration-150 ease-in-out">
+          <li className="w-fit sm:w-full cursor-pointer font-light hover:scale-[1.02] transition-all duration-150 ease-in-out">
             <Link href="/edit/projects">Projects</Link>
           </li>
-          <li className="w-fit sm:w-full cursor-pointer text-zinc-300 hover:text-zinc-200 font-light hover:scale-[1.02] transition-all duration-150 ease-in-out">
+          <li className="w-fit sm:w-full cursor-pointer font-light hover:scale-[1.02] transition-all duration-150 ease-in-out">
             <Link href="/edit/resume">Resume</Link>
           </li>
         </ul>

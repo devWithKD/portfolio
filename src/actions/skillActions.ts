@@ -1,4 +1,5 @@
 "use server";
+import S3, { r2_bucket_name } from "@/lib/cloudflareR2Connect";
 import SkillModel from "@/model/skill.model";
 import { revalidatePath } from "next/cache";
 
@@ -15,9 +16,19 @@ export async function addSkill(formData: FormData, Key: string) {
 
   console.log(newSkill);
 
-  await newSkill.save();
-  revalidatePath("/edit/skills");
-  return;
+  try {
+    await newSkill.save();
+    revalidatePath("/edit/skills");
+    return null;
+  } catch (error) {
+    console.error("Something went wrong while saving document", error);
+    const params = {
+      Bucket: r2_bucket_name as string,
+      Key,
+    };
+    S3.deleteObject(params);
+    return error;
+  }
 }
 
 export async function updateSkill(
@@ -31,7 +42,7 @@ export async function updateSkill(
   const skill = await SkillModel.findById(id);
   if (!skill) {
     // console.log("error", id);
-    return;
+    return null;
   }
   skill.name = skillName as string;
   skill.level = Number(profLevel);
@@ -39,14 +50,24 @@ export async function updateSkill(
     skill.img_url = `${process.env.R2_PUBLIC_URI}${Key}`;
     skill.img = Key;
   }
-  await skill.save();
-  revalidatePath("/edit/skills");
-  return;
+  try {
+    await skill.save();
+    revalidatePath("/edit/skills");
+    return null;
+  } catch (error) {
+    console.error("Something went wrong while saving document", error);
+    const params = {
+      Bucket: r2_bucket_name as string,
+      Key:skill.img as string,
+    };
+    S3.deleteObject(params);
+    return error;
+  }
 }
 
 export async function deleteSkill(id: string) {
   try {
-    console.log(id)
+    // console.log(id)
     await SkillModel.findByIdAndDelete(id);
     revalidatePath("/edit/skills");
     return;

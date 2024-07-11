@@ -3,10 +3,10 @@ import Link from "next/link";
 function EditPage() {
   return (
     <div className="w-full flex flex-grow flex-col gap-2 mt-8 items-center">
-      <h1 className="text-3xl md:text-6xl font-semibold text-zinc-200">
+      <h1 className="text-3xl md:text-6xl font-semibold text-zinc-700 dark:text-zinc-200">
         Welcome KD
       </h1>
-      <p className="text-xl md:text-2xl font-semibold text-zinc-300">
+      <p className="text-xl md:text-2xl font-semibold text-zinc-700 dark:text-zinc-300">
         What would you like to change?
       </p>
       <div className="grid grid-cols-2 gap-6 mt-8">

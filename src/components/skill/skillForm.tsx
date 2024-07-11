@@ -31,8 +31,12 @@ function SkillForm({
 }: {
   skill?: Skill;
   type?: "edit" | "add";
-  addSkill: (formData: FormData, Key: string) => void;
-  updateSkill?: (formData: FormData, id: string, Key?: string) => void;
+  addSkill: (formData: FormData, Key: string) => Promise<unknown>;
+  updateSkill?: (
+    formData: FormData,
+    id: string,
+    Key?: string
+  ) => Promise<unknown>;
 }) {
   const [preSignedData, setPreSignedData] = useState<{
     Key: string;
@@ -48,8 +52,9 @@ function SkillForm({
 
       axios
         .put(preSignedData.signedUrl, logo)
-        .then(async (res) => {
-          await addSkill(formData, preSignedData.Key);
+        .then(async () => {
+          const res = addSkill(formData, preSignedData.Key);
+          if (res) console.error(res);
         })
         .catch((error) => {
           console.log(error);
@@ -57,10 +62,16 @@ function SkillForm({
     } else {
       if (!updateSkill) return;
       if (preSignedData == null) {
-        await updateSkill(formData, skill?._id as string);
+        const res = updateSkill(formData, skill?._id as string);
+        if (res) console.error(res);
       } else {
-        await axios.put(preSignedData.signedUrl, logo).then(async (res) => {
-          await updateSkill(formData, skill?._id as string, preSignedData.Key);
+        await axios.put(preSignedData.signedUrl, logo).then(async () => {
+          const res = updateSkill(
+            formData,
+            skill?._id as string,
+            preSignedData.Key
+          );
+          if (res) console.error(res);
         });
       }
     }

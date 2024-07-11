@@ -87,6 +87,6 @@
     @apply w-full lg:w-3/4 flex-grow mt-14 py-12 px-8;
   }
   .option-card {
-    @apply w-36 h-36 p-4 flex justify-center items-center rounded-lg dark:bg-zinc-800 text-3xl md:text-4xl dark:text-zinc-500 hover:dark:bg-zinc-700 hover:scale-105 transition-all duration-150;
+    @apply w-36 h-36 p-4 flex justify-center items-center rounded-lg dark:bg-zinc-800 bg-zinc-200 text-3xl md:text-4xl text-zinc-500 hover:dark:bg-zinc-700 hover:bg-zinc-300 hover:scale-105 transition-all duration-150;
   }
 }
