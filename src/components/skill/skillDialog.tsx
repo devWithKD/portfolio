@@ -33,7 +33,7 @@ function SkillDialog({ type, skill }: { type: "edit" | "add"; skill?: Skill }) {
           </DialogTitle>
           <DialogDescription>
             Add name, logo(if available) and level of proficiency, Click save
-            when you're done
+            when you&apso;re done
           </DialogDescription>
         </DialogHeader>
         <SkillForm
