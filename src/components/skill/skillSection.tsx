@@ -23,12 +23,12 @@ const getSkills = async () => {
 };
 
 async function SkillSection() {
-  const skills = await getSkills();
+  const skills: Skill[]|undefined = await getSkills();
   if (!skills) return <p>Error Loading Skills</p>;
   return (
     <div className="flex gap-2 flex-wrap">
       {skills.map((skill) => (
-        <IconText src={skill.img_url}>{skill.name}</IconText>
+        <IconText key={skill._id} src={skill.img_url}>{skill.name}</IconText>
       ))}
       {/* <IconText src={jsLogo} alt="Logo for JavaScript">
         JavaScript

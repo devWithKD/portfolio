@@ -2,25 +2,38 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import StepSlider from "../step-slider";
-import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
-import { addSkill } from "@/actions/skillActions";
 import { DialogTrigger } from "../ui/dialog";
-import { revalidatePath } from "next/cache";
 import { Skill } from "@/model/skill.model";
 
-async function getPreSignedData(e: ChangeEvent<HTMLInputElement>) {
+async function getPreSignedData(
+  e: ChangeEvent<HTMLInputElement>,
+  existingKey?: string
+) {
   const logo = e.target.files?.[0];
   if (!logo) return;
   const type = encodeURIComponent(logo.type as string);
   const { data } = await axios.get(
-    `/api/image/get-presigned-data?fileType=${type}`
+    `/api/image/get-presigned-data?action=put&fileType=${type}${
+      existingKey ? `&key=${existingKey}` : ""
+    }`
   );
   const { Key, signedUrl } = data;
   return { Key, signedUrl };
 }
 
-function SkillForm({ skill, type }: { skill?: Skill; type?: "edit" | "add" }) {
+function SkillForm({
+  skill,
+  type,
+  addSkill,
+  updateSkill,
+}: {
+  skill?: Skill;
+  type?: "edit" | "add";
+  addSkill: (formData: FormData, Key: string) => void;
+  updateSkill?: (formData: FormData, id: string, Key?: string) => void;
+}) {
   const [preSignedData, setPreSignedData] = useState<{
     Key: string;
     signedUrl: string;
@@ -30,19 +43,27 @@ function SkillForm({ skill, type }: { skill?: Skill; type?: "edit" | "add" }) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const logo = formData.get("skill-logo");
-    console.log(logo);
-    if (preSignedData == null || !logo) return;
+    if (type == "add") {
+      if (preSignedData == null || !logo) return;
 
-    axios
-      .put(preSignedData.signedUrl, logo)
-      .then(async (res) => {
-        await addSkill(formData, preSignedData.Key);
-        // revalidatePath("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    revalidatePath("/edit/skills");
+      axios
+        .put(preSignedData.signedUrl, logo)
+        .then(async (res) => {
+          await addSkill(formData, preSignedData.Key);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      if (!updateSkill) return;
+      if (preSignedData == null) {
+        await updateSkill(formData, skill?._id as string);
+      } else {
+        await axios.put(preSignedData.signedUrl, logo).then(async (res) => {
+          await updateSkill(formData, skill?._id as string, preSignedData.Key);
+        });
+      }
+    }
   };
 
   return (
@@ -65,7 +86,7 @@ function SkillForm({ skill, type }: { skill?: Skill; type?: "edit" | "add" }) {
         type="file"
         id="skill-logo"
         name="skill-logo"
-        accept="image/jpeg, image/png, image/webp"
+        accept="image/jpeg, image/png"
         className="focus-visible:ring-0 focus-visible:ring-offset-0"
         onChange={async (e) => {
           const data = await getPreSignedData(e);

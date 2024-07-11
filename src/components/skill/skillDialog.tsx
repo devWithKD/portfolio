@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import SkillForm from "@/components/skill/skillForm";
 import { Skill } from "@/model/skill.model";
 import { MdEdit } from "react-icons/md";
+import { addSkill, updateSkill } from "@/actions/skillActions";
 
 function SkillDialog({ type, skill }: { type: "edit" | "add"; skill?: Skill }) {
   return (
@@ -19,9 +20,11 @@ function SkillDialog({ type, skill }: { type: "edit" | "add"; skill?: Skill }) {
           <Button variant="default" className="mt-2 max-w-[8rem]">
             Add Skill
           </Button>
-        ):(<Button variant="ghost" className="rounded-full" size="icon">
-          <MdEdit size={24}/>
-        </Button>)}
+        ) : (
+          <Button variant="ghost" className="rounded-full" size="icon">
+            <MdEdit size={24} />
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent className="w-full h-[15rem] md:w-[30rem] md:h-auto">
         <DialogHeader>
@@ -33,7 +36,12 @@ function SkillDialog({ type, skill }: { type: "edit" | "add"; skill?: Skill }) {
             when you're done
           </DialogDescription>
         </DialogHeader>
-        <SkillForm skill={type == "edit" ? skill : undefined} type={type}/>
+        <SkillForm
+          skill={type == "edit" ? skill : undefined}
+          type={type}
+          addSkill={addSkill}
+          updateSkill={type == "edit" ? updateSkill : undefined}
+        />
       </DialogContent>
     </Dialog>
   );

@@ -24,7 +24,7 @@ export default async function Header() {
         <div className="flex items-center gap-5">
           <nav className="hidden sm:block">
             <ul className="flex gap-5 items-center">
-              <li>
+              {/* <li>
                 <PageLink href="/projects">Projects</PageLink>
               </li>
               <li>
@@ -32,7 +32,7 @@ export default async function Header() {
               </li>
               <li>
                 <PageLink href="/resume">Resume</PageLink>
-              </li>
+              </li> */}
               {session?.user && (
                 <li>
                   <PageLink href="/edit">Edit</PageLink>

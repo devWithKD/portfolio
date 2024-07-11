@@ -17,7 +17,7 @@ async function EditSkill() {
     );
 
   return (
-    <div className="my-0 md:my-4 flex flex-col gap-6 w-full">
+    <div className="my-0 md:my-4 flex flex-col gap-6 w-full md:max-h-[45rem] z-[-1] md:z-auto">
       <SkillDialog type="add" />
       <SkillTable/>
     </div>
